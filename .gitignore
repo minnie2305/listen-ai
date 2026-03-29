@@ -15,8 +15,8 @@ stat/stat-service
 .DS_Store
 
 # Data
-data/
 *.db
+*.csv
 
 # Env
 .env
