@@ -20,43 +20,14 @@ Date format must be:
 ```text
 YYYY-MM-DD
 ```
+# Setup
 
-## Install gdown (for Google Drive download)
-
+1. Download the `posts.csv` file from [Google Drive](https://drive.google.com/file/d/1GCzFt9xFxAlr_FCCJprBqClJE4Qbpu4q/view?usp=sharing)
+2. Import the posts into the database with:
 ```bash
-pip install gdown
-```
-
-## Placeholder Google Drive Link
-
-Replace this placeholder with your actual file URL when ready:
-
-```text
-https://drive.google.com/uc?id=YOUR_GOOGLE_DRIVE_FILE_ID
-```
-
-## Usage
-
-Run from project root:
-
-```bash
-python data/import_posts.py --csv ./posts.csv --db ./data/listenai.db
-```
-
-Download with `gdown` first, then import:
-
-```bash
-python data/import_posts.py \
-  --download \
-  --drive-url "https://drive.google.com/uc?id=YOUR_GOOGLE_DRIVE_FILE_ID" \
+python import_posts.py \
   --csv ./posts.csv \
   --db ./data/listenai.db
-```
-
-Optional platform override (default is `x`):
-
-```bash
-python data/import_posts.py --platform reddit
 ```
 
 ## Behavior

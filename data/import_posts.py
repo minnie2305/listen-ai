@@ -18,8 +18,6 @@ import subprocess
 import sys
 from pathlib import Path
 
-DEFAULT_DRIVE_URL = "https://drive.google.com/uc?id=YOUR_GOOGLE_DRIVE_FILE_ID"
-
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import posts.csv into SQLite")
@@ -37,16 +35,6 @@ def parse_args() -> argparse.Namespace:
         "--platform",
         default="x",
         help="Platform value for inserted rows (default: x)",
-    )
-    parser.add_argument(
-        "--download",
-        action="store_true",
-        help="Download CSV from Google Drive using gdown before importing",
-    )
-    parser.add_argument(
-        "--drive-url",
-        default=DEFAULT_DRIVE_URL,
-        help="Google Drive URL for gdown when --download is set",
     )
     return parser.parse_args()
 
@@ -148,9 +136,6 @@ def main() -> int:
     csv_path = (root / args.csv).resolve() if not Path(args.csv).is_absolute() else Path(args.csv)
 
     try:
-        if args.download:
-            download_csv_with_gdown(args.drive_url, csv_path)
-
         result = import_posts(db_path=db_path, csv_path=csv_path, platform=args.platform)
     except Exception as exc:  # noqa: BLE001
         print(f"Error: {exc}", file=sys.stderr)
