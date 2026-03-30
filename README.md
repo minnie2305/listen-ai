@@ -16,6 +16,15 @@ A lightweight multi-service social listening platform with:
 - `stat` (Go): mentions, trends, top keywords, post retrieval
 - `db` (SQLite): stored under `./data/listenai.db`
 
+## Dependency Setup (Required)
+
+Please ensure the following dependencies are installed:
+
+1. Python
+2. Node.js
+3. Go
+4. Taskfile
+
 ## Dataset Setup (Required)
 
 Before starting services, make sure dataset files are ready.
