@@ -102,7 +102,6 @@ tasks:
     - frontend
 
   up:
-    desc: Cleanup ports then run all services together
+    desc: Run all services together
     cmds:
-    - task: cleanup
     - task: start
